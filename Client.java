@@ -7,7 +7,7 @@ public class Client
         Scanner in = new Scanner(System.in);
         String text;
         String regex;
-        Regex r = new Regex();
+        Regex1 r = new Regex1();
         regex = in.next();
         text = in.next();
         System.out.println("String satisfy the "+
