@@ -9,8 +9,21 @@ public class Regex1
         //regex = new Char[1024];
         //text = new Char[1024];
     }
-
+    
     public boolean match(String r,String t)
+    {
+        String k[] = r.split("\\+");
+        for(String s : k)
+        {
+            if(matchR(s,t))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+	
+    public boolean matchR(String r,String t)
     {
         r = r + "<";
         t = t + "<";
