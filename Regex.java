@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
-public class Regex
+public class Regex1
 {
     char regex[];
     char text[];
-    public Regex()
+    public Regex1()
     {
         //regex = new Char[1024];
         //text = new Char[1024];
@@ -19,10 +19,6 @@ public class Regex
         //System.out.println(Arrays.toString(regex)+" "+Arrays.toString(text));
         int i=0;
         int j=0;
-        if(regex[0] == '^')
-        {
-            return matchthis(regex,i+1,text,j);
-        }
         do
         {
             if(matchthis(regex,i,text,j))
@@ -50,11 +46,7 @@ public class Regex
         {
             return matchStar(regex[i],regex,i+2,text,j);
         }
-        if(regex[i] == '$' && regex[i+1] == '<')
-        {
-            return text[j] == '<';
-        }
-        if(text[j] != '<' && (regex[i] == '.' || regex[i] == text[j]))
+        if(text[j] != '<' && (regex[i] == '?' || regex[i] == text[j]))
         {
             return matchthis(regex,i+1,text,j+1);
         }
@@ -70,7 +62,7 @@ public class Regex
                 return true;
             }
         }
-        while(text[j] != '<' && (text[j++] == c || c == '.'));
+        while(text[j] != '<' && (text[j++] == c || c == '?'));
 
         return false;
     }
